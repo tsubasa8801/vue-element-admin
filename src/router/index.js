@@ -70,6 +70,19 @@ export const constantRoutes = [
     component: () => import('@/views/error-page/401'),
     hidden: true
   },
+  // 新首页
+  {
+    path: '/player',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/player/index'),
+        name: 'Documentation',
+        meta: { title: 'player', icon: 'people', affix: true }
+      }
+    ]
+  },
   {
     path: '/',
     component: Layout,
@@ -325,25 +338,6 @@ export const asyncRoutes = [
         meta: { title: 'exportZip' }
       }
     ]
-  },
-
-  {
-    path: '/pdf',
-    component: Layout,
-    redirect: '/pdf/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/pdf/index'),
-        name: 'PDF',
-        meta: { title: 'pdf', icon: 'pdf' }
-      }
-    ]
-  },
-  {
-    path: '/pdf/download',
-    component: () => import('@/views/pdf/download'),
-    hidden: true
   },
 
   {
